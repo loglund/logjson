@@ -1,0 +1,29 @@
+[workspace]
+authors = ["Mikkel Højlund Larsen <mikkelhojlundgrontmij@gmail.com>"]
+channels = ["conda-forge"]
+name = "logjson"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+logjson = { path = "." }
+python = "*"
+
+[package]
+name = "logjson"
+version = "0.1.0"
+description = "JSON parser and serializer"
+authors = ["Mikkel Højlund Larsen <mikkelhojlundgrontmij@gmail.com>"]
+
+[package.build]
+backend = { name = "pixi-build-cmake", version = "0.3.*" }
+
+[package.build.config]
+extra-args = ["-DCMAKE_BUILD_TYPE=Release", "-DLOGJSON_PY=ON"]
+
+[package.host-dependencies]
+cmake = "*"
+nanobind = "2.4.*"
+python = "3.12.*"
